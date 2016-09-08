@@ -1,4 +1,3 @@
-
 package tarea1;
 
 import java.io.*;
@@ -8,8 +7,7 @@ public class Tarea1 {
  static Integer tam=10;
      static Integer numero;      
     @SuppressWarnings("ConvertToTryWithResources")
-    //metodo para leer el archivo y ordenarlo ya sea de forma decendente o acendente
-     
+    //metodo para leer el archivo y ordenarlo ya sea de forma decendente o acendente     
     public static void Leer1(){
         try{
             @SuppressWarnings("UnusedAssignment")
@@ -20,9 +18,8 @@ public class Tarea1 {
             int []numeritos=new int[tam];
                    
             while(texto!=null){
-                
               String arreglo[]  = texto.split(",");
-              
+              //for para asignarle los valores al arreglo en cada posición
                 for(int x=0;x<arreglo.length;x++){
                 String numeros1 = arreglo[x];
                  numero=Integer.parseInt(numeros1);
@@ -34,16 +31,25 @@ public class Tarea1 {
                   System.out.print(numeritos[d]+" ");
               }
                System.out.println("\n_________________________________________________");
-               System.out.println("ORDENAMIENTO DE FORMA ASCENDENTE");
+               System.out.println("ORDENAMIENTO DE FORMA ASCENDENTE ARRAYS.SORT");
               Arrays.sort(numeritos);
               for(int z=0;z<numeritos.length;z++){
             System.out.println("["+numeritos[z]+"]");
         }     
                System.out.println("_________________________________________________");
-               System.out.println("ORDENAMIENTO DE FORMA DESCENDENTE");
+               System.out.println("ORDENAMIENTO DE FORMA ASCENDENTE QUICKSORT");
               
-       
-               texto=contenido.readLine();         
+            Quicksort.quicksort(numeritos);
+             for(int z=0;z<numeritos.length;z++){       
+            System.out.println("["+numeritos[z]+"]");
+        }
+            System.out.println("_________________________________________________"); 
+             System.out.println("ORDENAMIENTO DE FORMA DESCENDENTE BURBUJA CON SENIAL");
+          Burbuja.burbujaConSenial(numeritos);
+              for(int z=0;z<numeritos.length;z++){
+            System.out.println("["+numeritos[z]+"]");
+        }    
+             texto=contenido.readLine();         
             }
             lector.close();
         }
